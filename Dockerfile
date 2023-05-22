@@ -1,17 +1,14 @@
-# Use a base Java image from Docker Hub
-FROM openjdk:8-jdk-alpine
+# Use a base Java image with JDK 11 from Docker Hub
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Java source code into the container
-COPY Main.java .
+# Copy the compiled Java application into the container
+COPY Main.class .
 
-# Compile the Java code
-RUN javac Main.java
+# Expose port 8080 (default for Spring Boot)
+EXPOSE 8000
 
 # Set the command to run the application
 CMD ["java", "Main"]
-
-# Expose port 5000
-EXPOSE 5000
