@@ -1,13 +1,17 @@
-FROM openjdk:11
+# Use a base Java image from Docker Hub
+FROM openjdk:8-jdk-alpine
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the compiled Java web application (WAR file) to the container
-COPY target/my-web-app.war /app/my-web-app.war
+# Copy the Java source code into the container
+COPY Main.java .
 
-# Expose port 8000
-EXPOSE 8000
+# Compile the Java code
+RUN javac Main.java
 
-# Start the Java web application
-CMD ["java", "-jar", "/app/my-web-app.war"]
+# Set the command to run the application
+CMD ["java", "Main"]
+
+# Expose port 5000
+EXPOSE 5000
