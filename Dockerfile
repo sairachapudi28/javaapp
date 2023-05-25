@@ -5,10 +5,10 @@ FROM openjdk:11
 WORKDIR /app
 
 # Copy the application JAR file to the container
-COPY target/javaapp.jar /app
+COPY target/javaapp.jar/app
 
 # Expose port 5000
 EXPOSE 5000
 
 # Set the entry point command for running the application on port 5000
-ENTRYPOINT ["java", "-jar", "-Dserver.port=5000", "myapp.jar"]
+ENTRYPOINT ["java", "-jar", "-Dserver.port=5000", "javaapp.jar"]
