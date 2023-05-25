@@ -1,4 +1,4 @@
- Use a base image with Java pre-installed
+#Use a base image with Java pre-installed
 FROM openjdk:11
 
 # Set the working directory inside the container
