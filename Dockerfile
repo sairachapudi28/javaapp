@@ -5,7 +5,7 @@ FROM openjdk:11
 WORKDIR /app
 
 # Copy the application JAR file to the container
-COPY target/myapp.jar /app
+COPY target/javaapp.jar /app
 
 # Expose port 5000
 EXPOSE 5000
